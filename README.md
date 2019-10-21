@@ -1,24 +1,5 @@
-# README
+# Gitfolio api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [x] Criar modelo portfólio: login, avatar_url, name, location, email, bio, start, last_update
+- [x] Criar modelo repositórios: name, full_name, owner, html_url, description, start, last_update, last_pushed, language
+- [ ] Criar serialize para portfolio
