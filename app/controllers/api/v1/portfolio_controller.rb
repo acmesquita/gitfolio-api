@@ -5,6 +5,11 @@ class Api::V1::PortfolioController < ApplicationController
     render json: @portfolios, status: :ok
   end
 
+  def show
+    set_portfolio
+    render json: @portfolio, status: :ok
+  end
+
   def create
     @portfolio = Portfolio.new(portfolio_params)
     if(@portfolio.save)
