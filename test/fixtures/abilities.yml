@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  description: 
+  language: MyString
+  portfolio: one
+
+two:
+  type: 
+  description: 
+  language: MyString
+  portfolio: two
