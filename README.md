@@ -7,7 +7,7 @@
   - [x] search: retorna todos os portfolios baseados na busca
   - [x] create: cria um novo portfólio
   - [x] show: retorna um portfólio
-- [ ] Modelar indicadores
-  - [ ] Linguagem
-  - [ ] Projetos
-  - [ ] Linha do tempo
+- [x] Modelar indicadores
+  - [x] Linguagem
+  - [x] Projetos
+  - [x] Linha do tempo
