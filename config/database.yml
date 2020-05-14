@@ -21,5 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: deocmcirt5qrau
+  username: jwiogkwklphvvh
+  password: e8cf27556ba9b597dbe9752720cda9e7fb2cf70a7146f4bf91b2638a3f7d8be1
+  port: 5432
