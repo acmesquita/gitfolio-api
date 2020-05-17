@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+(1..10).each do |p|
+  Portfolio.create({login: "login #{p}", name: "name #{p}", email: "email#{p}@email.com"})
+end
