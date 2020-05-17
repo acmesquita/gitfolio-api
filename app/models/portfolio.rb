@@ -15,20 +15,17 @@ class Portfolio < ApplicationRecord
   }
 
   def process_program_at
-  
-    map_languages = repositories.map{|r| r.language_start }
-    map_languages.sort_by! {|s| s[:start]}
-    languages = map_languages.map{|s| s[:language]}.uniq
+    map_languages = repositories.map(&:language_start).sort_by(&:start)
+    languages = map_languages.map(&:language).uniq.compact
 
     languages.each do |language|
-      if !language.nil?
-        start = map_languages.filter{|l| l[:language] == language}.first[:start]
-        count_project = repositories.select{ |r| r.language == language}.size
-        last_project = map_languages.filter{|l| l[:language] == language}.last[:start]
+      projects_to_language = map_languages.filter{|l| l[:language] == language}
+      start = projects_to_language.first[:start]
+      count_project = repositories.count{ |r| r.language == language}
+      last_project = projects_to_language.last[:start]
 
-        description = "Iniciou em #{start} - Possui #{count_project} projetos - Último projeto em #{last_project}"
-        Ability.find_or_create_by({language: language, description: description, kind: 'start_at', portfolio: self}) 
-      end
+      description = "Iniciou em #{start} - Possui #{count_project} projetos - Último projeto em #{last_project}"
+      Ability.find_or_create_by({language: language, description: description, kind: 'start_at', portfolio: self}) 
     end
   end
 end
