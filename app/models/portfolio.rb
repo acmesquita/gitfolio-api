@@ -6,6 +6,14 @@ class Portfolio < ApplicationRecord
 
   before_commit :process_program_at
 
+  scope :by_login_name_or_email, -> (value) {
+    where("login like ? or name like ? or email like ? ", "%#{value}%", "%#{value}%", "%#{value}%")
+  }
+
+  scope :no_query_value, -> (){
+    self.order(:name).limit(10)
+  }
+
   def process_program_at
   
     map_languages = repositories.map{|r| r.language_start }

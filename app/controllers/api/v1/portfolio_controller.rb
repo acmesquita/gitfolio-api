@@ -1,7 +1,9 @@
 class Api::V1::PortfolioController < ApplicationController
 
   def search
-    @portfolios = Portfolio.where("login like ? or name like ? or email like ? ", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+    @portfolios = Portfolio.by_login_name_or_email(params[:q])
+    @portfolios = Portfolio.no_query_value if @portfolios.empty?
+    
     render json: @portfolios, status: :ok
   end
 
